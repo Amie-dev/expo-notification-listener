@@ -5,6 +5,7 @@
  */
 
 import { NativeModule, requireNativeModule } from 'expo';
+
 import { ExpoNotification } from './ExpoNotificationListener.types';
 
 type ExpoNotificationListenerEvents = {

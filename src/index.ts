@@ -6,8 +6,9 @@
 
 import { EventSubscription } from 'expo-modules-core';
 import { AppRegistry } from 'react-native';
-import ExpoNotificationListenerModule from './ExpoNotificationListenerModule';
+
 import { ExpoNotification, HeadlessNotificationEvent } from './ExpoNotificationListener.types';
+import ExpoNotificationListenerModule from './ExpoNotificationListenerModule';
 
 // Re-export type definitions
 export * from './ExpoNotificationListener.types';
