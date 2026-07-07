@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "expo-notification-listener": ["../src/index"],
+      "expo-notification-listener/*": ["../src/*"]
+    }
+  }
+}
