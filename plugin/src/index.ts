@@ -19,7 +19,7 @@ const withNotificationListenerService: ConfigPlugin = (config) => {
         'android:name': 'expo.modules.notificationlistener.ExpoNotificationListenerService',
         'android:label': 'Expo Notification Listener',
         'android:permission': 'android.permission.BIND_NOTIFICATION_LISTENER_SERVICE',
-        'android:exported': 'false',
+        'android:exported': 'true',
       },
       'intent-filter': [
         {

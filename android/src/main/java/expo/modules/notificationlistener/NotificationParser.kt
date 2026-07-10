@@ -77,8 +77,12 @@ object NotificationParser {
     for (key in keys) {
       try {
         val value = bundle.get(key)
-        if (value != null && isPrimitiveOrString(value)) {
-          map[key] = value
+        if (value != null) {
+          if (isPrimitiveOrString(value)) {
+            map[key] = value
+          } else if (value is CharSequence) {
+            map[key] = value.toString()
+          }
         }
       } catch (e: Exception) {
         // Skip keys that fail to deserialize or cause classloader issues

@@ -4,6 +4,13 @@
   "description": "Android notification listener module for Expo",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "files": [
+    "build",
+    "android",
+    "expo-module.config.json",
+    "app.plugin.js",
+    "plugin/build"
+  ],
   "expo": {
     "plugin": "./plugin/build/index.js"
   },

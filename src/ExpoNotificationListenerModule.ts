@@ -1,11 +1,4 @@
-/**
- * File: ExpoNotificationListenerModule.ts
- * Purpose: Bridges and types the native Expo module functions to the TypeScript environment,
- *          including foreground notification listener events.
- */
-
-import { NativeModule, requireNativeModule } from 'expo';
-
+import { NativeModule } from 'expo';
 import { ExpoNotification } from './ExpoNotificationListener.types';
 
 type ExpoNotificationListenerEvents = {
@@ -13,11 +6,22 @@ type ExpoNotificationListenerEvents = {
   onNotificationRemoved: (notification: ExpoNotification) => void;
 };
 
-declare class ExpoNotificationListenerModule extends NativeModule<ExpoNotificationListenerEvents> {
-  isPermissionGranted(): boolean;
-  requestPermission(): void;
-  openNotificationSettings(): void;
-  getActiveNotifications(): Promise<ExpoNotification[]>;
+class ExpoNotificationListenerModuleStub extends NativeModule<ExpoNotificationListenerEvents> {
+  isPermissionGranted(): boolean {
+    return false;
+  }
+
+  requestPermission(): void {
+    // No-op on unsupported platforms
+  }
+
+  openNotificationSettings(): void {
+    // No-op on unsupported platforms
+  }
+
+  async getActiveNotifications(): Promise<ExpoNotification[]> {
+    return [];
+  }
 }
 
-export default requireNativeModule<ExpoNotificationListenerModule>('ExpoNotificationListener');
+export default new ExpoNotificationListenerModuleStub();

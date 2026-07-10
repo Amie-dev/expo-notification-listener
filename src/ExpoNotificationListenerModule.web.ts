@@ -1,6 +1,22 @@
 import { registerWebModule, NativeModule } from 'expo';
+import { ExpoNotification } from './ExpoNotificationListener.types';
 
-// ExpoNotificationListenerModule is not available on the web platform.
-class ExpoNotificationListenerModule extends NativeModule<{}> {}
+class ExpoNotificationListenerModule extends NativeModule<{}> {
+  isPermissionGranted(): boolean {
+    return false;
+  }
 
-export default registerWebModule(ExpoNotificationListenerModule, 'ExpoNotificationListenerModule');
+  requestPermission(): void {
+    // No-op on web
+  }
+
+  openNotificationSettings(): void {
+    // No-op on web
+  }
+
+  async getActiveNotifications(): Promise<ExpoNotification[]> {
+    return [];
+  }
+}
+
+export default registerWebModule(ExpoNotificationListenerModule, 'ExpoNotificationListener');
